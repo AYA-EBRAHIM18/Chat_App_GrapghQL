@@ -12,12 +12,16 @@ export const UserMutations = new GraphQLObjectType({
         username: { type: GraphQLString },
         gender: { type: GraphQLString },
         password: { type: GraphQLString },
+        confirmPassword: { type: GraphQLString },
       },
       async resolve(parent, args, context) {
-        const { username, gender, password } = args;
+        const { username, gender, password, confirmPassword } = args;
         const userExists = await User.findOne({ username });
         if (userExists) {
           throw new Error("User already exists");
+        }
+        if (password !== confirmPassword) {
+          res.status(404).json({ error: "passwords don't match" });
         }
         const user = new User({ username, gender, password });
         await user.save();

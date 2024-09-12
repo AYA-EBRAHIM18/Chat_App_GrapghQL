@@ -7,6 +7,9 @@ body {
   background-attachment: fixed;
 }
 
+.homepage {
+  height: 520px;
+}
 .link {
   text-decoration: none;
   color: white;
@@ -16,28 +19,12 @@ body {
   color: #0d6efd;
 }
 
-.chat {
-  cursor: pointer;
-}
-.chat p {
-  font-size: 18px;
-}
-.chat:hover {
+.selected-chat {
   background-color: #43412f;
 }
 hr {
   margin-top: 0px;
   margin-bottom: 0px;
-}
-.message-right {
-  border-radius: 15px;
-  background-color: rgba(16, 61, 31, 0.2);
-}
-.message-left {
-  border-radius: 15px;
-}
-.messages {
-  height: 400px;
 }
 
 .send {
@@ -60,4 +47,76 @@ hr {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #242424;
+}
+
+.logout-btn {
+  cursor: pointer;
+}
+
+.messages {
+  height: 400px;
+}
+.chat-end {
+  float: right;
+
+  width: 70%;
+}
+.chat-start {
+  float: left;
+}
+.chat-end-bg {
+  background-color: rgba(16, 61, 31, 0.4);
+}
+.chat-start-bg {
+  background-color: rgba(16, 61, 31, 0.7);
+}
+
+/* online */
+.chat-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+
+.chat-item:hover {
+  background-color: #43412f;
+}
+
+.chat-name-container {
+  position: relative;
+  padding-left: 15px; /* Space for the indicator */
+}
+
+.chat-name {
+  font-weight: bold;
+  font-size: 14px;
+  color: #f4f4f4;
+}
+
+.online-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #4caf50; /* Green color for online */
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* online */
+
+.typing {
+  position: absolute; /* Positioning it absolutely */
+  top: -30px; /* Adjust as needed */
+  left: 10px; /* Position to your liking */
+  margin: 0; /* Remove margin */
+  font-size: 16px; /* Adjust font size if needed */
+  color: white; /* Indicate typing status */
+  height: 0; /* Optional: Set height to ensure no layout shift */
+  transition: all 0.3s ease; /* Smooth transition for showing/hiding */
 }

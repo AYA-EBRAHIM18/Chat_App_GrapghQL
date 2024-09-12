@@ -37,6 +37,7 @@ export const ChatQueries = new GraphQLObjectType({
       type: new GraphQLList(UserType),
       async resolve(parent, args, context) {
         const userId = context.req.userId;
+        console.log(userId);
 
         if (!userId) {
           throw new Error("User ID not found in context");

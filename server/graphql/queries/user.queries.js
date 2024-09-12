@@ -16,7 +16,7 @@ export const UserQueries = new GraphQLObjectType({
         const { username, password } = args;
         const user = await User.findOne({ username });
         if (!user || !(await user.matchPassword(password))) {
-          throw new Error("Invalid credentials");
+          throw new Error("Invalid username or password ");
         }
         const token = generateCookie(user._id);
         context.res.cookie("jwt", token, {

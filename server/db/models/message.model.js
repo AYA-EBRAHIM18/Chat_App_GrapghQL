@@ -18,11 +18,11 @@ const schema = mongoose.Schema(
     },
     createdAt: {
       type: Date,
-      default: Date.now,
+      default: new Date(),
     },
   },
   {
-    timeStamps: { updatedAt: false },
+    timestamps: false,
     versionKey: false,
   }
 );

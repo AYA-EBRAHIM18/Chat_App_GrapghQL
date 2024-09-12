@@ -7,7 +7,7 @@ export const Sidebar = () => {
     <>
     <div className="">
       <SearchInput/>
-      <div className=""><hr class="hr" /></div>
+      <div className=""><hr /></div>
       <Chats/>
       <Logout/>
     </div>

@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 
 export const authMiddleware = (req, res, next) => {
-  const token = req.headers["authorization"];
-  // const token = req.cookies.jwt;
+  // const token = req.headers["authorization"];
+  const token = req.cookies.jwt;
 
   if (!token) {
     return res.status(401).json({ message: "Authentication required" });
